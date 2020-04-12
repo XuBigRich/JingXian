@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.piao888.jingxian.mapper.SysRoleMapper">
+  <resultMap id="BaseResultMap" type="cn.piao888.jingxian.domain.SysRole">
+    <id column="role_id" jdbcType="BIGINT" property="role_id" />
+    <result column="pid" jdbcType="BIGINT" property="pid" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="version" jdbcType="INTEGER" property="version" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="create_time" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="update_time" />
+    <result column="create_user" jdbcType="BIGINT" property="create_user" />
+    <result column="update_user" jdbcType="BIGINT" property="update_user" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from sys_role
+    where role_id = #{role_id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="cn.piao888.jingxian.domain.SysRole">
+    insert into sys_role (role_id, pid, name,
+      description, sort, version,
+      create_time, update_time, create_user,
+      update_user)
+    values (#{role_id,jdbcType=BIGINT}, #{pid,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR},
+      #{description,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{version,jdbcType=INTEGER},
+      #{create_time,jdbcType=TIMESTAMP}, #{update_time,jdbcType=TIMESTAMP}, #{create_user,jdbcType=BIGINT},
+      #{update_user,jdbcType=BIGINT})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.piao888.jingxian.domain.SysRole">
+    update sys_role
+    set pid = #{pid,jdbcType=BIGINT},
+      name = #{name,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      version = #{version,jdbcType=INTEGER},
+      create_time = #{create_time,jdbcType=TIMESTAMP},
+      update_time = #{update_time,jdbcType=TIMESTAMP},
+      create_user = #{create_user,jdbcType=BIGINT},
+      update_user = #{update_user,jdbcType=BIGINT}
+    where role_id = #{role_id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select role_id, pid, name, description, sort, version, create_time, update_time,
+    create_user, update_user
+    from sys_role
+    where role_id = #{role_id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select role_id, pid, name, description, sort, version, create_time, update_time,
+    create_user, update_user
+    from sys_role
+  </select>
+  <resultMap id="BaseResultMap" type="cn.piao888.jingxian.domain.SysRole">
+    <result column="id" jdbcType="VARCHAR" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="available" jdbcType="CHAR" property="available" />
+  </resultMap>
+  <insert id="insert" keyProperty="id" parameterType="cn.piao888.jingxian.domain.SysRole" useGeneratedKeys="true">
+    insert into sys_role (name, available)
+    values (#{name,jdbcType=VARCHAR}, #{available,jdbcType=CHAR})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, available
+    from sys_role
+  </select>
+  <resultMap id="BaseResultMap" type="cn.piao888.jingxian.domain.SysRole">
+    <id column="role_id" jdbcType="BIGINT" property="role_id" />
+    <result column="role_name" jdbcType="VARCHAR" property="role_name" />
+    <result column="role_key" jdbcType="VARCHAR" property="role_key" />
+    <result column="role_sort" jdbcType="INTEGER" property="role_sort" />
+    <result column="data_scope" jdbcType="CHAR" property="data_scope" />
+    <result column="status" jdbcType="CHAR" property="status" />
+    <result column="del_flag" jdbcType="CHAR" property="del_flag" />
+    <result column="create_by" jdbcType="VARCHAR" property="create_by" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="create_time" />
+    <result column="update_by" jdbcType="VARCHAR" property="update_by" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="update_time" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from sys_role
+    where role_id = #{role_id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="cn.piao888.jingxian.domain.SysRole">
+    insert into sys_role (role_id, role_name, role_key,
+      role_sort, data_scope, status,
+      del_flag, create_by, create_time,
+      update_by, update_time, remark
+      )
+    values (#{role_id,jdbcType=BIGINT}, #{role_name,jdbcType=VARCHAR}, #{role_key,jdbcType=VARCHAR},
+      #{role_sort,jdbcType=INTEGER}, #{data_scope,jdbcType=CHAR}, #{status,jdbcType=CHAR},
+      #{del_flag,jdbcType=CHAR}, #{create_by,jdbcType=VARCHAR}, #{create_time,jdbcType=TIMESTAMP},
+      #{update_by,jdbcType=VARCHAR}, #{update_time,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.piao888.jingxian.domain.SysRole">
+    update sys_role
+    set role_name = #{role_name,jdbcType=VARCHAR},
+      role_key = #{role_key,jdbcType=VARCHAR},
+      role_sort = #{role_sort,jdbcType=INTEGER},
+      data_scope = #{data_scope,jdbcType=CHAR},
+      status = #{status,jdbcType=CHAR},
+      del_flag = #{del_flag,jdbcType=CHAR},
+      create_by = #{create_by,jdbcType=VARCHAR},
+      create_time = #{create_time,jdbcType=TIMESTAMP},
+      update_by = #{update_by,jdbcType=VARCHAR},
+      update_time = #{update_time,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR}
+    where role_id = #{role_id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select role_id, role_name, role_key, role_sort, data_scope, status, del_flag, create_by,
+    create_time, update_by, update_time, remark
+    from sys_role
+    where role_id = #{role_id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select role_id, role_name, role_key, role_sort, data_scope, status, del_flag, create_by,
+    create_time, update_by, update_time, remark
+    from sys_role
+  </select>
+
+  <select id="selectRoleBelongByUserId" resultMap="BaseResultMap">
+    select role_id, role_name, role_key, role_sort, data_scope, status, del_flag, create_by,
+    create_time, update_by, update_time, remark
+    from sys_role r left join sys_user_role ur on r.id=ur.role_id
+                    left join sys_user u on u.id=ur.user_id
+    where u.id=#{userId}
+  </select>
+</mapper>

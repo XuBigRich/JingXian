@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.piao888.jingxian.mapper.SysRolePermissionMapper" >
+  <resultMap id="BaseResultMap" type="cn.piao888.jingxian.domain.SysRolePermission" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="sys_role_id" property="sys_role_id" jdbcType="VARCHAR" />
+    <result column="sys_permission_id" property="sys_permission_id" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from sys_role_permission
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.piao888.jingxian.domain.SysRolePermission" useGeneratedKeys="true" keyProperty="id" >
+    insert into sys_role_permission (sys_role_id, sys_permission_id)
+    values (#{sys_role_id,jdbcType=VARCHAR}, #{sys_permission_id,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.piao888.jingxian.domain.SysRolePermission" >
+    update sys_role_permission
+    set sys_role_id = #{sys_role_id,jdbcType=VARCHAR},
+      sys_permission_id = #{sys_permission_id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select id, sys_role_id, sys_permission_id
+    from sys_role_permission
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, sys_role_id, sys_permission_id
+    from sys_role_permission
+  </select>
+</mapper>
