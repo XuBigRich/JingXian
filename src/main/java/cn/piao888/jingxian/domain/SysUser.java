@@ -1,7 +1,6 @@
 package cn.piao888.jingxian.domain;
 
 import java.util.List;
-import java.util.UUID;
 
 public class SysUser {
     private String id;
@@ -73,5 +72,17 @@ public class SysUser {
     public void setLocked(String locked) {
         this.locked = locked;
     }
-}
 
+    @Override
+    public String toString() {
+        return "SysUser{" +
+                "id='" + id + '\'' +
+                ", usercode='" + usercode + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", salt='" + salt + '\'' +
+                ", locked='" + locked + '\'' +
+                ", roleList=" + roleList +
+                '}';
+    }
+}

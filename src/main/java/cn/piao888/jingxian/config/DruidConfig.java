@@ -27,7 +27,7 @@ import com.alibaba.druid.util.Utils;
 
 /**
  * druid 配置多数据源
- *
+ * https://www.jianshu.com/p/b2f818b742a2  多数据源 教学
  * @author ruoyi
  */
 @Configuration

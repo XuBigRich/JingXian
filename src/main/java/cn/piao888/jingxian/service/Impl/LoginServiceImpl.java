@@ -1,14 +1,11 @@
 package cn.piao888.jingxian.service.Impl;
 
-import cn.piao888.jingxian.domain.SysPermission;
 import cn.piao888.jingxian.domain.SysRole;
 import cn.piao888.jingxian.domain.SysUser;
 import cn.piao888.jingxian.mapper.SysRoleMapper;
 import cn.piao888.jingxian.mapper.SysUserMapper;
 import cn.piao888.jingxian.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -38,12 +35,5 @@ public class LoginServiceImpl implements LoginService {
         List<SysRole> roles=sysRoleMapper.selectRoleBelongByUserId(sysUser.getId());
         sysUser.setRoleList(roles);
         return sysUser;
-    }
-
-    public static void main(String[] args) {
-        ApplicationContext ac = new FileSystemXmlApplicationContext("applicationContext.xml");
-        ApplicationContext applicationContext;
-
-
     }
 }

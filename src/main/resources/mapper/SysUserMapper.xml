@@ -1,176 +1,47 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.piao888.jingxian.mapper.SysUserMapper">
-  <resultMap id="BaseResultMap" type="cn.piao888.jingxian.domain.SysUser">
-    <id column="user_id" jdbcType="BIGINT" property="user_id" />
-    <result column="dept_id" jdbcType="BIGINT" property="dept_id" />
-    <result column="login_name" jdbcType="VARCHAR" property="login_name" />
-    <result column="user_name" jdbcType="VARCHAR" property="user_name" />
-    <result column="user_type" jdbcType="VARCHAR" property="user_type" />
-    <result column="email" jdbcType="VARCHAR" property="email" />
-    <result column="phonenumber" jdbcType="VARCHAR" property="phonenumber" />
-    <result column="sex" jdbcType="CHAR" property="sex" />
-    <result column="avatar" jdbcType="VARCHAR" property="avatar" />
-    <result column="password" jdbcType="VARCHAR" property="password" />
-    <result column="salt" jdbcType="VARCHAR" property="salt" />
-    <result column="status" jdbcType="CHAR" property="status" />
-    <result column="del_flag" jdbcType="CHAR" property="del_flag" />
-    <result column="login_ip" jdbcType="VARCHAR" property="login_ip" />
-    <result column="login_date" jdbcType="TIMESTAMP" property="login_date" />
-    <result column="create_by" jdbcType="VARCHAR" property="create_by" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="create_time" />
-    <result column="update_by" jdbcType="VARCHAR" property="update_by" />
-    <result column="update_time" jdbcType="TIMESTAMP" property="update_time" />
-    <result column="remark" jdbcType="VARCHAR" property="remark" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.piao888.jingxian.mapper.SysUserMapper" >
+  <resultMap id="BaseResultMap" type="cn.piao888.jingxian.domain.SysUser" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="usercode" property="usercode" jdbcType="VARCHAR" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="salt" property="salt" jdbcType="VARCHAR" />
+    <result column="locked" property="locked" jdbcType="CHAR" />
   </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from sys_user
-    where user_id = #{user_id,jdbcType=BIGINT}
+    where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="cn.piao888.jingxian.domain.SysUser">
-    insert into sys_user (user_id, dept_id, login_name,
-      user_name, user_type, email,
-      phonenumber, sex, avatar,
-      password, salt, status,
-      del_flag, login_ip, login_date,
-      create_by, create_time, update_by,
-      update_time, remark)
-    values (#{user_id,jdbcType=BIGINT}, #{dept_id,jdbcType=BIGINT}, #{login_name,jdbcType=VARCHAR},
-      #{user_name,jdbcType=VARCHAR}, #{user_type,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR},
-      #{phonenumber,jdbcType=VARCHAR}, #{sex,jdbcType=CHAR}, #{avatar,jdbcType=VARCHAR},
-      #{password,jdbcType=VARCHAR}, #{salt,jdbcType=VARCHAR}, #{status,jdbcType=CHAR},
-      #{del_flag,jdbcType=CHAR}, #{login_ip,jdbcType=VARCHAR}, #{login_date,jdbcType=TIMESTAMP},
-      #{create_by,jdbcType=VARCHAR}, #{create_time,jdbcType=TIMESTAMP}, #{update_by,jdbcType=VARCHAR},
-      #{update_time,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR})
-  </insert>
-  <update id="updateByPrimaryKey" parameterType="cn.piao888.jingxian.domain.SysUser">
-    update sys_user
-    set dept_id = #{dept_id,jdbcType=BIGINT},
-      login_name = #{login_name,jdbcType=VARCHAR},
-      user_name = #{user_name,jdbcType=VARCHAR},
-      user_type = #{user_type,jdbcType=VARCHAR},
-      email = #{email,jdbcType=VARCHAR},
-      phonenumber = #{phonenumber,jdbcType=VARCHAR},
-      sex = #{sex,jdbcType=CHAR},
-      avatar = #{avatar,jdbcType=VARCHAR},
-      password = #{password,jdbcType=VARCHAR},
-      salt = #{salt,jdbcType=VARCHAR},
-      status = #{status,jdbcType=CHAR},
-      del_flag = #{del_flag,jdbcType=CHAR},
-      login_ip = #{login_ip,jdbcType=VARCHAR},
-      login_date = #{login_date,jdbcType=TIMESTAMP},
-      create_by = #{create_by,jdbcType=VARCHAR},
-      create_time = #{create_time,jdbcType=TIMESTAMP},
-      update_by = #{update_by,jdbcType=VARCHAR},
-      update_time = #{update_time,jdbcType=TIMESTAMP},
-      remark = #{remark,jdbcType=VARCHAR}
-    where user_id = #{user_id,jdbcType=BIGINT}
-  </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select user_id, dept_id, login_name, user_name, user_type, email, phonenumber, sex,
-    avatar, password, salt, status, del_flag, login_ip, login_date, create_by, create_time,
-    update_by, update_time, remark
-    from sys_user
-    where user_id = #{user_id,jdbcType=BIGINT}
-  </select>
-  <select id="selectAll" resultMap="BaseResultMap">
-    select user_id, dept_id, login_name, user_name, user_type, email, phonenumber, sex,
-    avatar, password, salt, status, del_flag, login_ip, login_date, create_by, create_time,
-    update_by, update_time, remark
-    from sys_user
-  </select>
-  <resultMap id="BaseResultMap" type="cn.piao888.jingxian.domain.SysUser">
-    <id column="user_id" jdbcType="BIGINT" property="user_id" />
-    <result column="avatar" jdbcType="VARCHAR" property="avatar" />
-    <result column="account" jdbcType="VARCHAR" property="account" />
-    <result column="password" jdbcType="VARCHAR" property="password" />
-    <result column="salt" jdbcType="VARCHAR" property="salt" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="birthday" jdbcType="TIMESTAMP" property="birthday" />
-    <result column="sex" jdbcType="VARCHAR" property="sex" />
-    <result column="email" jdbcType="VARCHAR" property="email" />
-    <result column="phone" jdbcType="VARCHAR" property="phone" />
-    <result column="role_id" jdbcType="VARCHAR" property="role_id" />
-    <result column="dept_id" jdbcType="BIGINT" property="dept_id" />
-    <result column="status" jdbcType="VARCHAR" property="status" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="create_time" />
-    <result column="create_user" jdbcType="BIGINT" property="create_user" />
-    <result column="update_time" jdbcType="TIMESTAMP" property="update_time" />
-    <result column="update_user" jdbcType="BIGINT" property="update_user" />
-    <result column="version" jdbcType="INTEGER" property="version" />
-  </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from sys_user
-    where user_id = #{user_id,jdbcType=BIGINT}
-  </delete>
-  <insert id="insert" parameterType="cn.piao888.jingxian.domain.SysUser">
-    insert into sys_user (user_id, avatar, account,
-      password, salt, name,
-      birthday, sex, email,
-      phone, role_id, dept_id,
-      status, create_time, create_user,
-      update_time, update_user, version
+  <insert id="insert" parameterType="cn.piao888.jingxian.domain.SysUser" >
+    insert into sys_user (id, usercode, username,
+      password, salt, locked
       )
-    values (#{user_id,jdbcType=BIGINT}, #{avatar,jdbcType=VARCHAR}, #{account,jdbcType=VARCHAR},
-      #{password,jdbcType=VARCHAR}, #{salt,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
-      #{birthday,jdbcType=TIMESTAMP}, #{sex,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR},
-      #{phone,jdbcType=VARCHAR}, #{role_id,jdbcType=VARCHAR}, #{dept_id,jdbcType=BIGINT},
-      #{status,jdbcType=VARCHAR}, #{create_time,jdbcType=TIMESTAMP}, #{create_user,jdbcType=BIGINT},
-      #{update_time,jdbcType=TIMESTAMP}, #{update_user,jdbcType=BIGINT}, #{version,jdbcType=INTEGER}
+    values (#{id,jdbcType=VARCHAR}, #{usercode,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR},
+      #{password,jdbcType=VARCHAR}, #{salt,jdbcType=VARCHAR}, #{locked,jdbcType=CHAR}
       )
   </insert>
-  <update id="updateByPrimaryKey" parameterType="cn.piao888.jingxian.domain.SysUser">
+  <update id="updateByPrimaryKey" parameterType="cn.piao888.jingxian.domain.SysUser" >
     update sys_user
-    set avatar = #{avatar,jdbcType=VARCHAR},
-      account = #{account,jdbcType=VARCHAR},
+    set usercode = #{usercode,jdbcType=VARCHAR},
+      username = #{username,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
       salt = #{salt,jdbcType=VARCHAR},
-      name = #{name,jdbcType=VARCHAR},
-      birthday = #{birthday,jdbcType=TIMESTAMP},
-      sex = #{sex,jdbcType=VARCHAR},
-      email = #{email,jdbcType=VARCHAR},
-      phone = #{phone,jdbcType=VARCHAR},
-      role_id = #{role_id,jdbcType=VARCHAR},
-      dept_id = #{dept_id,jdbcType=BIGINT},
-      status = #{status,jdbcType=VARCHAR},
-      create_time = #{create_time,jdbcType=TIMESTAMP},
-      create_user = #{create_user,jdbcType=BIGINT},
-      update_time = #{update_time,jdbcType=TIMESTAMP},
-      update_user = #{update_user,jdbcType=BIGINT},
-      version = #{version,jdbcType=INTEGER}
-    where user_id = #{user_id,jdbcType=BIGINT}
+      locked = #{locked,jdbcType=CHAR}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select user_id, avatar, account, password, salt, name, birthday, sex, email, phone,
-    role_id, dept_id, status, create_time, create_user, update_time, update_user, version
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select id, usercode, username, password, salt, locked
     from sys_user
-    where user_id = #{user_id,jdbcType=BIGINT}
+    where id = #{id,jdbcType=VARCHAR}
   </select>
-  <select id="selectAll" resultMap="BaseResultMap">
-    select user_id, avatar, account, password, salt, name, birthday, sex, email, phone,
-    role_id, dept_id, status, create_time, create_user, update_time, update_user, version
-    from sys_user
-  </select>
-  <resultMap id="BaseResultMap" type="cn.piao888.jingxian.domain.SysUser">
-    <result column="id" jdbcType="VARCHAR" property="id" />
-    <result column="usercode" jdbcType="VARCHAR" property="usercode" />
-    <result column="username" jdbcType="VARCHAR" property="username" />
-    <result column="password" jdbcType="VARCHAR" property="password" />
-    <result column="salt" jdbcType="VARCHAR" property="salt" />
-    <result column="locked" jdbcType="CHAR" property="locked" />
-  </resultMap>
-  <insert id="insert" keyProperty="id" parameterType="cn.piao888.jingxian.domain.SysUser" useGeneratedKeys="true">
-    insert into sys_user (usercode, username, password,
-      salt, locked)
-    values (#{usercode,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
-      #{salt,jdbcType=VARCHAR}, #{locked,jdbcType=CHAR})
-  </insert>
-  <select id="selectAll" resultMap="BaseResultMap">
+  <select id="selectAll" resultMap="BaseResultMap" >
     select id, usercode, username, password, salt, locked
     from sys_user
   </select>
+
   <select id="getUserByName" resultMap="BaseResultMap">
     select id, usercode, username, password, salt, locked
-    from sys_user where username=#{username,jdbcType=VARCHAR}
+    from sys_user where usercode=#{username,jdbcType=VARCHAR}
   </select>
 </mapper>

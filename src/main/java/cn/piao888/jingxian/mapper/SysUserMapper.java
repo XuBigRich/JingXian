@@ -6,10 +6,14 @@ import org.mapstruct.Mapper;
 import java.util.List;
 @Mapper
 public interface SysUserMapper {
+    int deleteByPrimaryKey(String id);
+
     int insert(SysUser record);
+
+    SysUser selectByPrimaryKey(String id);
 
     List<SysUser> selectAll();
 
-    SysUser getUserByName(String username);
-
+    int updateByPrimaryKey(SysUser record);
+    SysUser  getUserByName(String username);
 }

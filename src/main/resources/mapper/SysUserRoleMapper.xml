@@ -14,21 +14,9 @@
     select id, sys_user_id, sys_role_id
     from sys_user_role
   </select>
-  <resultMap id="BaseResultMap" type="cn.piao888.jingxian.domain.SysUserRole">
-    <id column="user_id" jdbcType="BIGINT" property="user_id" />
-    <id column="role_id" jdbcType="BIGINT" property="role_id" />
-  </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="map">
     delete from sys_user_role
     where user_id = #{user_id,jdbcType=BIGINT}
       and role_id = #{role_id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="cn.piao888.jingxian.domain.SysUserRole">
-    insert into sys_user_role (user_id, role_id)
-    values (#{user_id,jdbcType=BIGINT}, #{role_id,jdbcType=BIGINT})
-  </insert>
-  <select id="selectAll" resultMap="BaseResultMap">
-    select user_id, role_id
-    from sys_user_role
-  </select>
 </mapper>
