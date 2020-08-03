@@ -1,4 +1,4 @@
-package cn.piao888.jingxian.controller;
+package cn.piao888.jingxian.controller.base;
 
 /**
  * @Author： hongzhi.xu

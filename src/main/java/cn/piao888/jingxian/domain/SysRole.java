@@ -1,6 +1,8 @@
 package cn.piao888.jingxian.domain;
 
-public class SysRole {
+import cn.piao888.jingxian.domain.base.BaseEntity;
+
+public class SysRole extends BaseEntity {
     private String id;
 
     private String name;

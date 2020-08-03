@@ -1,6 +1,8 @@
 package cn.piao888.jingxian.domain;
 
-public class SysPermission {
+import cn.piao888.jingxian.domain.base.BaseEntity;
+
+public class SysPermission extends BaseEntity {
     private Long id;
 
     private String name;

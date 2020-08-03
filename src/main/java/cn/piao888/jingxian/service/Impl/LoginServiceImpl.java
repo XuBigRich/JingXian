@@ -23,16 +23,24 @@ public class LoginServiceImpl implements LoginService {
         return getSysUser(getMapByName);
     }
 
+    @Override
+    public SysUser login(String usercode, String password) {
+        SysUser sysUser = sysUserMapper.login(usercode, password);
+        return sysUser;
+    }
+
+
     /**
      * 模拟数据库查询
+     *
      * @param userName
      * @return
      */
-    private SysUser getSysUser(String userName){
+    SysUser getSysUser(String userName) {
         //根据用户名查出用户
-        SysUser sysUser=sysUserMapper.getUserByName(userName);
+        SysUser sysUser = sysUserMapper.getUserByName(userName);
         //根据用户id查出用户所属角色
-        List<SysRole> roles=sysRoleMapper.selectRoleBelongByUserId(sysUser.getId());
+        List<SysRole> roles = sysRoleMapper.selectRoleBelongByUserId(sysUser.getId());
         sysUser.setRoleList(roles);
         return sysUser;
     }

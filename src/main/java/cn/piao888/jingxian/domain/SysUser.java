@@ -1,18 +1,18 @@
 package cn.piao888.jingxian.domain;
 
+import cn.piao888.jingxian.domain.base.BaseEntity;
+
 import java.util.List;
 
-public class SysUser {
+public class SysUser extends BaseEntity {
     private String id;
 
     private String usercode;
 
     private String username;
 
-    private String password;
-
     private String salt;
-
+    /*账号是否被禁用*/
     private String locked;
 
     private List<SysRole> roleList;
@@ -49,13 +49,6 @@ public class SysUser {
         this.username = username;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     public String getSalt() {
         return salt;
@@ -79,7 +72,6 @@ public class SysUser {
                 "id='" + id + '\'' +
                 ", usercode='" + usercode + '\'' +
                 ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
                 ", salt='" + salt + '\'' +
                 ", locked='" + locked + '\'' +
                 ", roleList=" + roleList +

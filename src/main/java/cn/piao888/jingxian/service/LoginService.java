@@ -4,4 +4,5 @@ import cn.piao888.jingxian.domain.SysUser;
 
 public interface LoginService {
      SysUser getUserByName(String getMapByName);
+     SysUser login(String usercode,String password);
 }
